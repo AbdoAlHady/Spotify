@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_app/core/routing/routes.dart';
-import 'package:spotify_app/features/on_boarding/presentation/screens/on_boarding_screen.dart';
+import 'package:spotify_app/features/intro/presentation/screens/intro_screen.dart';
 import 'package:spotify_app/features/spalsh/presentation/screens/spalsh_screen.dart';
 
 class AppRouter {
@@ -17,7 +17,7 @@ class AppRouter {
         );
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
-          builder: (_) => const OnBoardingScreen(),
+          builder: (_) => const IntroScreen(),
         );
 
       default:
