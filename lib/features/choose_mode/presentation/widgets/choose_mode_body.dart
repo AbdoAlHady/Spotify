@@ -5,7 +5,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:spotify_app/core/configs/assets/app_images.dart';
 import 'package:spotify_app/core/configs/assets/app_verctors.dart';
 import 'package:spotify_app/core/configs/theme/text_styles.dart';
+import 'package:spotify_app/core/extension/extension.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
+import 'package:spotify_app/core/routing/routes.dart';
 import 'package:spotify_app/core/utils/app_strings.dart';
 import 'package:spotify_app/core/widgets/app_elevated_button.dart';
 import 'package:spotify_app/features/choose_mode/presentation/bloc/theme_cubit.dart';
@@ -22,12 +24,11 @@ class ChooseModeBody extends StatelessWidget {
         color: Colors.black.withOpacity(0.15),
       ),
       decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(AppImages.chooeseModelBg),
-          fit: BoxFit.fill,
-        ),
-      color: Colors.white
-      ),
+          image: DecorationImage(
+            image: AssetImage(AppImages.chooeseModelBg),
+            fit: BoxFit.fill,
+          ),
+          color: Colors.white),
       child: Column(
         children: [
           // Sptify Logo
@@ -67,7 +68,11 @@ class ChooseModeBody extends StatelessWidget {
             ],
           ),
           verticalSpace(60),
-          AppElevatedButton(onPressed: () {}, title: AppStrings.continueWord),
+          AppElevatedButton(
+              onPressed: () {
+                context.pushNamed(Routes.signupOrSigninScreen);
+              },
+              title: AppStrings.continueWord),
         ],
       ),
     );

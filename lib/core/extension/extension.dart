@@ -24,6 +24,8 @@ extension Navigation on BuildContext {
     Navigator.of(this).pop();
   }
 
-
  
+}
+extension DarkMode on BuildContext {
+  bool get isDarkMode => Theme.of(this).brightness == Brightness.dark;
 }
