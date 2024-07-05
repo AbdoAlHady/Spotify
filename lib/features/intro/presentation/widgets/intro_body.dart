@@ -4,7 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:spotify_app/core/configs/assets/app_images.dart';
 import 'package:spotify_app/core/configs/assets/app_verctors.dart';
 import 'package:spotify_app/core/configs/theme/text_styles.dart';
+import 'package:spotify_app/core/extension/navigate_extension.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
+import 'package:spotify_app/core/routing/routes.dart';
 import 'package:spotify_app/core/utils/app_strings.dart';
 import 'package:spotify_app/core/widgets/app_elevated_button.dart';
 
@@ -19,6 +21,10 @@ class IntroBody extends StatelessWidget {
           // OnBoarding Background Image
           Container(
             padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 40.w),
+            // Shadow
+            foregroundDecoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.15),
+            ),
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(AppImages.onBoardingBg1),
@@ -34,31 +40,30 @@ class IntroBody extends StatelessWidget {
                 const Spacer(),
                 // Title,
                 Text(
-                 AppStrings.introTitle,
-                  style: AppTextStyles.font18WhiteBold,
+                  AppStrings.introTitle,
+                  style: TextStyles.font18WhiteBold,
                 ),
                 verticalSpace(21),
 
                 // Subtitle
                 Text(
                   AppStrings.introSubTitle,
-                  style: AppTextStyles.font13GreyRegular,
+                  style: TextStyles.font13GreyRegular,
                   textAlign: TextAlign.center,
                 ),
                 verticalSpace(58),
 
                 // Get Started Button
-                AppElevatedButton(onPressed: () {}, title: AppStrings.getStarted),
+                AppElevatedButton(
+                    onPressed: () {
+                      context.pushNamed(Routes.chooseModeScreen);
+                    },
+                    title: AppStrings.getStarted),
               ],
             ),
-          ),
-          // Shadow
-          Container(
-            color: Colors.black.withOpacity(0.15),
           ),
         ],
       ),
     );
-
   }
 }
