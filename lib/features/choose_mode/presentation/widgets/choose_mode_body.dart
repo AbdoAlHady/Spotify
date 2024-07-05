@@ -27,7 +27,7 @@ class ChooseModeBody extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Sptify Logo,
+          // Sptify Logo
           Align(
             alignment: Alignment.topCenter,
             child: SvgPicture.asset(
