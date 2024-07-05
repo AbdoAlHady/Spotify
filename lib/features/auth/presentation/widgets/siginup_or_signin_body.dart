@@ -5,6 +5,7 @@ import 'package:spotify_app/core/configs/assets/app_verctors.dart';
 import 'package:spotify_app/core/configs/theme/text_styles.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
 import 'package:spotify_app/core/utils/app_strings.dart';
+import 'package:spotify_app/core/widgets/basic_app_bar.dart';
 import 'package:spotify_app/features/auth/presentation/widgets/register_or_signin_buttons.dart';
 import '../../../../core/configs/assets/app_images.dart';
 
@@ -15,6 +16,7 @@ class SiginupOrSigninBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
+        const BasicAppBar(),
         // Top Pattern
         Align(
           alignment: Alignment.topRight,
