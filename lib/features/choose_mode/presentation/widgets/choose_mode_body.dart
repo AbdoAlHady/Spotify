@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:spotify_app/core/configs/assets/app_images.dart';
@@ -7,6 +8,7 @@ import 'package:spotify_app/core/configs/theme/text_styles.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
 import 'package:spotify_app/core/utils/app_strings.dart';
 import 'package:spotify_app/core/widgets/app_elevated_button.dart';
+import 'package:spotify_app/features/choose_mode/presentation/bloc/theme_cubit.dart';
 import 'package:spotify_app/features/choose_mode/presentation/widgets/choose_mode_button.dart';
 
 class ChooseModeBody extends StatelessWidget {
@@ -24,6 +26,7 @@ class ChooseModeBody extends StatelessWidget {
           image: AssetImage(AppImages.chooeseModelBg),
           fit: BoxFit.fill,
         ),
+      color: Colors.white
       ),
       child: Column(
         children: [
@@ -43,24 +46,28 @@ class ChooseModeBody extends StatelessWidget {
           ),
           verticalSpace(20),
 
-          // Buttons 
-          const Row(
+          // Buttons
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ChooseModeButton(
                 imagePath: AppVerctors.darkMode,
                 title: 'Dark Mode',
+                onPressed: () {
+                  context.read<ThemeCubit>().updateMode(mode: ThemeMode.dark);
+                },
               ),
               ChooseModeButton(
                 imagePath: AppVerctors.lightMode,
                 title: 'Light Mode',
+                onPressed: () {
+                  context.read<ThemeCubit>().updateMode(mode: ThemeMode.light);
+                },
               ),
             ],
           ),
           verticalSpace(60),
-          AppElevatedButton(onPressed: (){}, title: AppStrings.continueWord),
-
-
+          AppElevatedButton(onPressed: () {}, title: AppStrings.continueWord),
         ],
       ),
     );

@@ -10,30 +10,34 @@ class ChooseModeButton extends StatelessWidget {
   const ChooseModeButton({
     super.key,
     required this.imagePath,
-    required this.title,
+    required this.title, required this.onPressed,
   });
   final String imagePath;
   final String title;
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ClipOval(
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-            child: Container(
-              height: 73.h,
-              width: 73.w,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: const Color(0xFF30393c).withOpacity(0.4),
-                shape: BoxShape.circle,
-              ),
-              child: SvgPicture.asset(
-                imagePath,
-                height: 30.h,
-                width: 30.w,
-                fit: BoxFit.none,
+        GestureDetector(
+          onTap: onPressed,
+          child: ClipOval(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: Container(
+                height: 73.h,
+                width: 73.w,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF30393c).withOpacity(0.4),
+                  shape: BoxShape.circle,
+                ),
+                child: SvgPicture.asset(
+                  imagePath,
+                  height: 30.h,
+                  width: 30.w,
+                  fit: BoxFit.none,
+                ),
               ),
             ),
           ),
