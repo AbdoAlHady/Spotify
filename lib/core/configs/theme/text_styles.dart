@@ -16,8 +16,9 @@ class TextStyles {
   static TextStyle font15GreyRegular = TextStyle(
       fontSize: 15.sp, color: AppColors.gery, fontWeight: FontWeight.w400);
   static TextStyle font19WhiteMeduim = TextStyle(
-    fontSize: 19.sp,
-    color: Colors.white,
-    fontWeight: FontWeight.w500,
-  );
+      fontSize: 19.sp, color: Colors.white, fontWeight: FontWeight.w500);
+  static  TextStyle font14Meduim =
+      TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500);
+  static TextStyle font15blueBold =
+      TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold, color: Colors.blue);
 }

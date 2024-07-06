@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:spotify_app/core/configs/theme/text_styles.dart';
 import 'package:spotify_app/core/extension/extension.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
+import 'package:spotify_app/core/routing/routes.dart';
 import 'package:spotify_app/core/widgets/app_elevated_button.dart';
 
 class RegisterOrSignInButtons extends StatelessWidget {
@@ -16,14 +17,18 @@ class RegisterOrSignInButtons extends StatelessWidget {
         // Register Button
         Expanded(
           child: AppElevatedButton(
-              onPressed: () {}, title: 'Register'),
+              onPressed: () {
+                context.pushNamed(Routes.signUpScreen);
+              }, title: 'Register'),
         ),
         horizontalSpace(20),
     
         // SignIn Button
         Expanded(
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(Routes.signInScreen);
+            },
             child: Text(
               'Sign In',
               style: TextStyles.font19WhiteMeduim.copyWith(

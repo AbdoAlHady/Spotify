@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_app/core/routing/routes.dart';
+import 'package:spotify_app/features/auth/presentation/screens/sign_in_screen.dart';
+import 'package:spotify_app/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:spotify_app/features/auth/presentation/screens/signup_or_signin_screen.dart';
 import 'package:spotify_app/features/choose_mode/presentation/screens/choose_mode_screen.dart';
 import 'package:spotify_app/features/intro/presentation/screens/intro_screen.dart';
@@ -29,6 +31,14 @@ class AppRouter {
       case Routes.signupOrSigninScreen:
         return MaterialPageRoute(
           builder: (_) => const SignupOrSigninScreen(),
+        );
+       case Routes.signUpScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SignUpScreen(),
+        );
+        case Routes.signInScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SignInScreen(),
         );
 
       default:
