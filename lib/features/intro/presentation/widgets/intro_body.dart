@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:spotify_app/core/configs/assets/app_images.dart';
 import 'package:spotify_app/core/configs/assets/app_verctors.dart';
 import 'package:spotify_app/core/configs/theme/text_styles.dart';
-import 'package:spotify_app/core/extension/navigate_extension.dart';
+import 'package:spotify_app/core/extension/extension.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
 import 'package:spotify_app/core/routing/routes.dart';
 import 'package:spotify_app/core/utils/app_strings.dart';

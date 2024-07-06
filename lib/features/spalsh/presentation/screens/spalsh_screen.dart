@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_app/core/extension/navigate_extension.dart';
+import 'package:spotify_app/core/extension/extension.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../widgets/splash_body.dart';
