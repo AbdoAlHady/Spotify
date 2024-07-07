@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spotify_app/core/extension/extension.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
 import 'package:spotify_app/core/helpers/validation_helper.dart';
 import 'package:spotify_app/core/widgets/app_elevated_button.dart';
 import 'package:spotify_app/core/widgets/app_text_form_field.dart';
+import 'package:spotify_app/features/auth/presentation/cubit/signin/signin_cubit.dart';
 import 'package:spotify_app/features/auth/presentation/widgets/have_or_daont_have_an_account.dart';
 
 import '../../../../../core/routing/routes.dart';
@@ -70,7 +71,7 @@ class _SignInBodyState extends State<SignInBody> {
               // Sign In Button,
               AppElevatedButton(onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  
+                  context.read<SigninCubit>().signIn(email: _emailController.text.trim(), password: _passwordController.text.trim());
                 }else{
                   setState(() {
                     _autovalidateMode = AutovalidateMode.always;

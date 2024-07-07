@@ -1,9 +1,9 @@
 import 'package:firebase_cloud_firestore/firebase_cloud_firestore.dart';
 import 'package:flutter/services.dart';
-import 'package:spotify_app/core/exceptions/platform_exceptions.dart';
+import 'package:spotify_app/core/error/platform_exceptions.dart';
 import 'package:spotify_app/core/utils/app_strings.dart';
 import 'package:spotify_app/core/utils/firebase_constants.dart';
-import '../exceptions/firebase_exceptions.dart';
+import '../error/firebase_exceptions.dart';
 
 class FireStoreService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;

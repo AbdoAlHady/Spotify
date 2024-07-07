@@ -26,4 +26,5 @@ class AppStrings {
       'An error occured , please try again later.';
   static const String sucessRegister =
       'Account created successfully!';
+  static const String sucessSignIn = 'Signed in successfully!';
 }
