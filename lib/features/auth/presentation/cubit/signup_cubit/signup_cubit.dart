@@ -2,6 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify_app/features/auth/data/models/create_user_request.dart';
 import 'package:spotify_app/features/auth/dmoain/repos/auth_repo.dart';
 
+import '../../../../../core/services/cache_helper.dart';
+import '../../../../../core/utils/shared_preferences_keys.dart';
 import 'signup_state.dart';
 
 class SignupCubit extends Cubit<SignupState> {
@@ -19,9 +21,13 @@ class SignupCubit extends Cubit<SignupState> {
         fullName: fullName, email: email, password: password));
     user.fold(
       (failure) => emit(SignupState.failure(message: failure.message)),
-      (userEntity) => emit(
-        SignupState.success(user: userEntity),
-      ),
+      (userEntity)async{
+        // Save user id in shared preferences
+        CacheHelper().saveData(
+              key: SharedPreferencesKeys.userId, value: userEntity.userId);
+        emit(SignupState.success(user: userEntity));
+      
+      },
     );
   }
 }
