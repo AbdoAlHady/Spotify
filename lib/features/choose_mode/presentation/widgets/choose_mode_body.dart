@@ -8,7 +8,9 @@ import 'package:spotify_app/core/configs/theme/text_styles.dart';
 import 'package:spotify_app/core/extension/extension.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
 import 'package:spotify_app/core/routing/routes.dart';
+import 'package:spotify_app/core/services/cache_helper.dart';
 import 'package:spotify_app/core/utils/app_strings.dart';
+import 'package:spotify_app/core/utils/shared_preferences_keys.dart';
 import 'package:spotify_app/core/widgets/app_elevated_button.dart';
 import 'package:spotify_app/features/choose_mode/presentation/bloc/theme_cubit.dart';
 import 'package:spotify_app/features/choose_mode/presentation/widgets/choose_mode_button.dart';
@@ -69,7 +71,10 @@ class ChooseModeBody extends StatelessWidget {
           ),
           verticalSpace(60),
           AppElevatedButton(
-              onPressed: () {
+              onPressed: () async {
+                await CacheHelper().saveData(
+                    key: SharedPreferencesKeys.isFirstTime, value: true);
+                if (!context.mounted) return;
                 context.pushNamed(Routes.signupOrSigninScreen);
               },
               title: AppStrings.continueWord),
