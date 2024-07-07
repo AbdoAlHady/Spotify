@@ -7,6 +7,7 @@ import 'package:spotify_app/core/configs/assets/app_verctors.dart';
 import 'package:spotify_app/core/extension/extension.dart';
 import 'package:spotify_app/core/helpers/app_loaders.dart';
 import 'package:spotify_app/core/routing/routes.dart';
+import 'package:spotify_app/core/utils/app_strings.dart';
 import 'package:spotify_app/features/auth/presentation/cubit/signup_cubit/signup_cubit.dart';
 import 'package:spotify_app/features/auth/presentation/widgets/sign_up/sign_up_body.dart';
 import '../../../../../core/widgets/basic_app_bar.dart';
@@ -24,8 +25,8 @@ class SignUpBodyBlocConsumer extends StatelessWidget {
         if (state is SuccessState) {
            
           context.pushNamed(Routes.rootScreen);
-          AppLoaders.showToastError(
-              context: context, message: 'Account created successfully!');
+          AppLoaders.showToastSuccess(
+              context: context, message: AppStrings.sucessRegister);
         } else if (state is FailureState) {
           AppLoaders.showToastError(
               context: context, message: state.message, second: 5);

@@ -24,4 +24,6 @@ class AppStrings {
   static const String notMember = 'Not a member? ';
   static const String errorMessage =
       'An error occured , please try again later.';
+  static const String sucessRegister =
+      'Account created successfully!';
 }
