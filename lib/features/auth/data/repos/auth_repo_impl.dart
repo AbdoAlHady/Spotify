@@ -15,8 +15,14 @@ class AuthRepoImpl extends AuthRepo {
 
   AuthRepoImpl(this._authService, this._storeService);
   @override
-  Future<UserEntity> signIn() {
-    throw UnimplementedError();
+  Future<Either<Failure, UserEntity>> signIn({required String email, required String password}) async{
+    try {
+      final result = await _authService.signInWithEmailAndPassword(email:email, password: password);
+      return Right(UserModel.fromFirebaseUser(result));
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
+    
   }
 
   @override
