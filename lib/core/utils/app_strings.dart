@@ -22,4 +22,6 @@ class AppStrings {
   static const String signIn = 'Sign In';
   static const String registerNow = 'Register Now';
   static const String notMember = 'Not a member? ';
+  static const String errorMessage =
+      'An error occured , please try again later.';
 }

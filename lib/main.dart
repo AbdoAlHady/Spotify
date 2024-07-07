@@ -16,11 +16,15 @@ void main() async {
         ? HydratedStorage.webStorageDirectory
         : await getApplicationDocumentsDirectory(),
   );
-  await initDepedencies();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await initDepedencies();
+
   runApp(SpotifyApp(
     appRouter: AppRouter(),
   ));
 }
+
+ // flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs
+

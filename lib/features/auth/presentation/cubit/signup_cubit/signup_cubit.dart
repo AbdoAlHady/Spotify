@@ -8,6 +8,8 @@ class SignupCubit extends Cubit<SignupState> {
   final AuthRepo _authRepo;
   SignupCubit(this._authRepo) : super(const SignupState.initial());
 
+  
+
   void signup(
       {required String email,
       required String password,
