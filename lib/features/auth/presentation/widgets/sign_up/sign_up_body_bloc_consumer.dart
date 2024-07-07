@@ -26,7 +26,7 @@ class SignUpBodyBlocConsumer extends StatelessWidget {
           context.pushNamed(Routes.rootScreen);
           AppLoaders.showToastError(context: context, message:'Account created successfully!');
         } else if (state is FailureState) {
-          AppLoaders.showToastError(context: context, message: state.message);
+          AppLoaders.showToastError(context: context, message: state.message,second: 5 );
         }
       },
       builder: (context, state) {

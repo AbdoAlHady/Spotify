@@ -25,6 +25,7 @@ class _SignUpBodyState extends State<SignUpBody> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  bool isObscureText = true;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -63,7 +64,16 @@ class _SignUpBodyState extends State<SignUpBody> {
               // Password
               AppTextFormField(
                 hint: AppStrings.password,
-                suffixIcon: const Icon(Icons.visibility_off),
+                isPassword: isObscureText,
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isObscureText = !isObscureText;
+                    });
+                  },
+                  icon: Icon(
+                      isObscureText ? Icons.visibility : Icons.visibility_off),
+                ),
                 controller: _passwordController,
                 validator: (value) => ValidationHelper.validatePassword(value),
               ),
@@ -78,7 +88,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                             password: _passwordController.text.trim(),
                             fullName: _fullNameController.text.trim(),
                           );
-                    }else{
+                    } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;
                       });
