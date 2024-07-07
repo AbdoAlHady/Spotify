@@ -33,6 +33,7 @@ class _SignUpBodyState extends State<SignUpBody> {
         padding: EdgeInsets.symmetric(vertical: 50.h, horizontal: 20.w),
         child: Form(
           key: _formKey,
+           autovalidateMode: autovalidateMode,
           child: Column(
             children: [
               // Sign Up Title
