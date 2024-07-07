@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_app/core/extension/extension.dart';
+import 'package:spotify_app/core/services/cache_helper.dart';
+import 'package:spotify_app/core/utils/shared_preferences_keys.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../widgets/splash_body.dart';
@@ -17,6 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     redirectScreen();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -24,10 +27,22 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  void redirectScreen(){
-    Future.delayed(const Duration(seconds: 2), (){
-      context.pushReplacementNamed(Routes.onBoardingScreen);
+  void redirectScreen() {
+    Future.delayed(const Duration(seconds: 2), () {
+      if (CacheHelper().getData(key: SharedPreferencesKeys.isFirstTime) !=
+          null) {
+        if (CacheHelper().getData(key: SharedPreferencesKeys.isFirstTime) ==
+            true) {
+          if (CacheHelper().getData(key: SharedPreferencesKeys.userId) !=
+              null) {
+            context.pushReplacementNamed(Routes.rootScreen);
+          } else {
+            context.pushReplacementNamed(Routes.signupOrSigninScreen);
+          }
+        }
+      } else {
+        context.pushReplacementNamed(Routes.onBoardingScreen);
+      }
     });
-
   }
 }
