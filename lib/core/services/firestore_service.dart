@@ -45,4 +45,21 @@ class FireStoreService {
       throw AppStrings.errorMessage;
     }
   }
+
+   // Get Play List
+  Future<QuerySnapshot> getPlayList() async {
+   try {
+     final data = await _db
+        .collection(FirebaseConstants.songs)
+        .orderBy('releasedDate', descending: true)
+        .get();
+    return data;
+   } on FirebaseException catch (e) {
+      throw AppFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw AppPlatformException(e.code).message;
+    } catch (e) {
+      throw AppStrings.errorMessage;
+    }
+  }
 }

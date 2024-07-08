@@ -27,8 +27,17 @@ class HomeRepoImple extends HomeRepo {
   }
   
   @override
-  Future<Either<Failure, List<SongEntity>>> getPlayList() {
-    // TODO: implement getPlayList
-    throw UnimplementedError();
+  Future<Either<Failure, List<SongEntity>>> getPlayList()async{
+   try {
+    List<SongModel> songs = [];
+    final result = await _storeService.getPlayList();
+    for (var element in result.docs) {
+      songs.add(SongModel.fromJson(element.data() as Map<String, dynamic>));
+    }
+    debugPrint('=== Songs Length: ${songs.length} ===');
+    return Right(songs);
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 }
