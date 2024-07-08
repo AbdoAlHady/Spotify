@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:spotify_app/core/error/failure.dart';
 import 'package:spotify_app/core/services/firestore_service.dart';
 import 'package:spotify_app/features/home/domain/entities/song_entity.dart';
@@ -18,6 +19,7 @@ class HomeRepoImple extends HomeRepo {
     for (var element in result.docs) {
       songs.add(SongModel.fromJson(element.data() as Map<String, dynamic>));
     }
+    debugPrint('=== Songs Length: ${songs.length} ===');
     return Right(songs);
     } catch (e) {
       return Left(ServerFailure(message: e.toString()));

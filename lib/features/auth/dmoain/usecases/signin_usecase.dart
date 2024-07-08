@@ -11,8 +11,8 @@ class SigninUsecase extends BaseUseCase<Either, SigninParams> {
   SigninUsecase(AuthRepo repo) : _repo = repo;
 
   @override
-  Future<Either<Failure, UserEntity>> call(SigninParams params) {
-    return _repo.signIn(email: params.email, password: params.password);
+  Future<Either<Failure, UserEntity>> call({SigninParams ?params}) {
+    return _repo.signIn(email: params!.email, password: params.password);
   }
 }
 

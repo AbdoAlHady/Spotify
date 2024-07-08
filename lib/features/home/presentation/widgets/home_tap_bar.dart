@@ -24,6 +24,7 @@ class HomeTabBar extends StatelessWidget {
       labelColor: context.isDarkMode?Colors.white:Colors.black,
       dividerHeight: 0,
       padding: EdgeInsets.symmetric(vertical: 40.w, horizontal: 16.h),
+      
       tabs:  [
         Text(AppStrings.news,style: TextStyles.font16BlackMeduim.apply(color: context.isDarkMode?Colors.white:Colors.black)),
         Text(AppStrings.videos,style: TextStyles.font16BlackMeduim.apply(color: context.isDarkMode?Colors.white:Colors.black)),
