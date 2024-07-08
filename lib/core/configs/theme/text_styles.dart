@@ -7,6 +7,7 @@ class TextStyles {
       fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18.sp);
   static TextStyle font13GreyRegular = TextStyle(
       color: AppColors.gery, fontSize: 13.sp, fontWeight: FontWeight.w400);
+  static TextStyle font12WhiteRegular = TextStyle(fontSize: 12.sp,color: Colors.white,fontWeight: FontWeight.w400);
   static TextStyle font22WhiteBold = TextStyle(
       color: Colors.white, fontSize: 22.sp, fontWeight: FontWeight.bold);
   static TextStyle font17WhiteMeduim = TextStyle(

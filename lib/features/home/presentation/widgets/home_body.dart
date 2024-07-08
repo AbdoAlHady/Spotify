@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:spotify_app/core/configs/theme/text_styles.dart';
+import 'package:spotify_app/core/extension/extension.dart';
+import 'package:spotify_app/core/helpers/spacing.dart';
 import 'package:spotify_app/features/home/presentation/widgets/artist_card.dart';
 import 'package:spotify_app/features/home/presentation/widgets/home_tap_bar.dart';
 import 'package:spotify_app/features/home/presentation/widgets/news_songs.dart';
+import 'package:spotify_app/features/home/presentation/widgets/play_list/play_list_title.dart';
 
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
@@ -26,18 +31,21 @@ class _HomeBodyState extends State<HomeBody>
         // Atrist Card
         const ArtistCard(),
         HomeTabBar(tabController: _tabController),
-        Expanded(
-          child: TabBarView(
-            controller: _tabController,
-            children: [
+        SizedBox(
+          height: 250.h,
+          child: TabBarView(controller: _tabController, children: [
             const NewsSongs(),
             Container(),
             Container(),
             Container(),
           ]),
         ),
-        // News Songs,
+        verticalSpace(20),
+
+        // Play List
+        const PlayListTitle(),
       ],
     );
   }
 }
+

@@ -31,4 +31,6 @@ class AppStrings {
   static const String videos = 'Videos';
   static const String artists = 'Artists';
   static const String prodcasts = 'Prodcasts';
+  static const String playList = 'PlayList';
+  static const String seeMore = 'See More';
 }

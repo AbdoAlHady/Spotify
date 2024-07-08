@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify_app/features/home/domain/usecases/get_news_songs_use_case.dart';
-import 'package:spotify_app/features/home/presentation/cubit/cubit/news_songs_state.dart';
+import 'package:spotify_app/features/home/presentation/cubit/news_songs/news_songs_state.dart';
 
 class NewsSongsCubit extends Cubit<NewsSongsState> {
   final GetNewsSongsUseCase _useCase;
