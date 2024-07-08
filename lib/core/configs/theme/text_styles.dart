@@ -21,4 +21,5 @@ class TextStyles {
       TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500);
   static TextStyle font15blueBold =
       TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold, color: Colors.blue);
+  static TextStyle font16BlackMeduim = TextStyle(fontSize: 16.sp , fontWeight: FontWeight.w500,color: Colors.black );
 }
