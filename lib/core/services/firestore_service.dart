@@ -30,11 +30,19 @@ class FireStoreService {
 
   // Get New Songs
   Future<QuerySnapshot> getNewsSongsFromFirestore() async {
-    final data = await _db
+   try {
+     final data = await _db
         .collection(FirebaseConstants.songs)
         .orderBy('releasedDate', descending: true)
         .limit(3)
         .get();
     return data;
+   } on FirebaseException catch (e) {
+      throw AppFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw AppPlatformException(e.code).message;
+    } catch (e) {
+      throw AppStrings.errorMessage;
+    }
   }
 }
