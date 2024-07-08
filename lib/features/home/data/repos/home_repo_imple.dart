@@ -25,4 +25,10 @@ class HomeRepoImple extends HomeRepo {
       return Left(ServerFailure(message: e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, List<SongEntity>>> getPlayList() {
+    // TODO: implement getPlayList
+    throw UnimplementedError();
+  }
 }
