@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spotify_app/core/extension/extension.dart';
 
 class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const BasicAppBar({super.key, this.title});
+  const BasicAppBar({super.key, this.title,  this.isBackIocn=true});
   final Widget? title;
+  final bool isBackIocn;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -12,9 +13,9 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
-      title: title?? const Text(''),
+      title: title ?? const Text(''),
       automaticallyImplyLeading: false,
-      leading: IconButton(
+      leading:isBackIocn? IconButton(
         onPressed: () {
           context.pop();
         },
@@ -34,7 +35,7 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
             size: 15,
           ),
         ),
-      ),
+      ):null,
     );
   }
 

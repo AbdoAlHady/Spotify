@@ -5,4 +5,5 @@ class AppVerctors {
   static const String lightMode = '${basePath}light_mode.svg';
   static const String topPattern = '${basePath}top_pattern.svg';
   static const String bottomPattern = '${basePath}bottom_pattern.svg';
+  static const String artistCard = '${basePath}home_top_card.svg';
 }
