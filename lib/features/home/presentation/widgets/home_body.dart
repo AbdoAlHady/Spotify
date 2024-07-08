@@ -1,10 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:spotify_app/core/configs/theme/app_colors.dart';
-import 'package:spotify_app/core/configs/theme/text_styles.dart';
-import 'package:spotify_app/core/extension/extension.dart';
-import 'package:spotify_app/core/helpers/spacing.dart';
-import 'package:spotify_app/core/utils/app_strings.dart';
 import 'package:spotify_app/features/home/presentation/widgets/artist_card.dart';
 import 'package:spotify_app/features/home/presentation/widgets/home_tap_bar.dart';
 
