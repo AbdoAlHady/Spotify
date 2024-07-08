@@ -24,7 +24,7 @@ class SignUpBodyBlocConsumer extends StatelessWidget {
       listener: (context, state) async {
         if (state is SuccessState) {
            
-          context.pushNamed(Routes.rootScreen);
+          context.pushNamed(Routes.signInScreen);
           AppLoaders.showToastSuccess(
               context: context, message: AppStrings.sucessRegister);
         } else if (state is FailureState) {
