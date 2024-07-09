@@ -6,4 +6,5 @@ abstract class HomeRepo {
   
   Future<Either<Failure,List<SongEntity>>> getNewSongs();
   Future<Either<Failure,List<SongEntity>>> getPlayList();
+  Future<Either<Failure,bool>> addOrRemoveFavoriteSongs({required String songId});
 }

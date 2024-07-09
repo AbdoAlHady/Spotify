@@ -40,4 +40,14 @@ class HomeRepoImple extends HomeRepo {
       return Left(ServerFailure(message: e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, bool>> addOrRemoveFavoriteSongs({required String songId}) async{
+     try {
+      final result=await _storeService.addOrRemoveFavoriteSongs(songId);
+       return Right(result);
+     } catch (e) {
+        return Left(ServerFailure(message: e.toString()));
+     }
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_cloud_firestore/firebase_cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:spotify_app/core/error/platform_exceptions.dart';
@@ -30,14 +31,14 @@ class FireStoreService {
 
   // Get New Songs
   Future<QuerySnapshot> getNewsSongsFromFirestore() async {
-   try {
-     final data = await _db
-        .collection(FirebaseConstants.songs)
-        .orderBy('releasedDate', descending: true)
-        .limit(3)
-        .get();
-    return data;
-   } on FirebaseException catch (e) {
+    try {
+      final data = await _db
+          .collection(FirebaseConstants.songs)
+          .orderBy('releasedDate', descending: true)
+          .limit(3)
+          .get();
+      return data;
+    } on FirebaseException catch (e) {
       throw AppFirebaseException(e.code).message;
     } on PlatformException catch (e) {
       throw AppPlatformException(e.code).message;
@@ -46,15 +47,52 @@ class FireStoreService {
     }
   }
 
-   // Get Play List
+  // Get Play List
   Future<QuerySnapshot> getPlayList() async {
-   try {
-     final data = await _db
-        .collection(FirebaseConstants.songs)
-        .orderBy('releasedDate', descending: true)
-        .get();
-    return data;
-   } on FirebaseException catch (e) {
+    try {
+      final data = await _db
+          .collection(FirebaseConstants.songs)
+          .orderBy('releasedDate', descending: true)
+          .get();
+      return data;
+    } on FirebaseException catch (e) {
+      throw AppFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw AppPlatformException(e.code).message;
+    } catch (e) {
+      throw AppStrings.errorMessage;
+    }
+  }
+
+  // Add or Remove Favorite Songs
+  Future<bool> addOrRemoveFavoriteSongs(String songId) async {
+    try {
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      var user = auth.currentUser;
+      String userId = user!.uid;
+      late bool isFavourite;
+      QuerySnapshot favourites = await _db
+          .collection(FirebaseConstants.users)
+          .doc(userId)
+          .collection(FirebaseConstants.favourites)
+          .where('songId', isEqualTo: songId)
+          .get();
+      if (favourites.docs.isNotEmpty) {
+        favourites.docs.first.reference.delete();
+        isFavourite = false;
+      } else {
+        await _db
+            .collection(FirebaseConstants.users)
+            .doc(userId)
+            .collection(FirebaseConstants.favourites)
+            .add(
+          {'songId': songId, 'addedDate': Timestamp.now()},
+          
+        );
+        isFavourite = true;
+      }
+      return isFavourite;
+    } on FirebaseException catch (e) {
       throw AppFirebaseException(e.code).message;
     } on PlatformException catch (e) {
       throw AppPlatformException(e.code).message;
