@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
             true) {
           if (CacheHelper().getData(key: SharedPreferencesKeys.userId) !=
               null) {
-            context.pushReplacementNamed(Routes.rootScreen);
+            context.pushReplacementNamed(Routes.homeScreen);
           } else {
             context.pushReplacementNamed(Routes.signupOrSigninScreen);
           }

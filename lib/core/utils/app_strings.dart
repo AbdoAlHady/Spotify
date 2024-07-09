@@ -27,4 +27,10 @@ class AppStrings {
   static const String sucessRegister =
       'Account created successfully!';
   static const String sucessSignIn = 'Signed in successfully!';
+  static const String news = 'News';
+  static const String videos = 'Videos';
+  static const String artists = 'Artists';
+  static const String prodcasts = 'Prodcasts';
+  static const String playList = 'PlayList';
+  static const String seeMore = 'See More';
 }

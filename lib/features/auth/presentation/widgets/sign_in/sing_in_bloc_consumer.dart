@@ -24,7 +24,7 @@ class SignInBlocConsumer extends StatelessWidget {
     return BlocConsumer<SigninCubit, SigninState>(
       listener: (context, state) {
         if (state is SuccessState) {
-          context.pushNamedAndRemoveUntil(Routes.rootScreen, predicate: (route) => false);
+          context.pushNamedAndRemoveUntil(Routes.homeScreen, predicate: (route) => false);
           AppLoaders.showToastSuccess(context: context, message: AppStrings.sucessSignIn);
         }else if (state is FailureState){
           AppLoaders.showToastError(context: context, message: state.message);}

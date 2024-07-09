@@ -8,7 +8,7 @@ class SignupUsecase implements BaseUseCase<Either, CreateUserRequest> {
 
   SignupUsecase(this._repo);
   @override
-  Future<Either> call(CreateUserRequest params) {
-    return _repo.signUp(params);
+  Future<Either> call({CreateUserRequest? params}) {
+    return _repo.signUp(params!);
   }
 }

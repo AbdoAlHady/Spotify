@@ -5,7 +5,7 @@ import 'package:spotify_app/features/auth/presentation/screens/sign_up_screen.da
 import 'package:spotify_app/features/auth/presentation/screens/signup_or_signin_screen.dart';
 import 'package:spotify_app/features/choose_mode/presentation/screens/choose_mode_screen.dart';
 import 'package:spotify_app/features/intro/presentation/screens/intro_screen.dart';
-import 'package:spotify_app/features/root/presentation/screens/root_screen.dart';
+import 'package:spotify_app/features/home/presentation/screens/home_screen.dart';
 import 'package:spotify_app/features/spalsh/presentation/screens/spalsh_screen.dart';
 
 class AppRouter {
@@ -41,9 +41,9 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const SignInScreen(),
         );
-         case Routes.rootScreen:
+         case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (_) => const RootScreen(),
+          builder: (_) => const HomeScreen(),
         );
 
       default:
