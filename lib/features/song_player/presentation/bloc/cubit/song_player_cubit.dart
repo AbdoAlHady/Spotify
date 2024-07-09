@@ -4,41 +4,56 @@ import 'package:spotify_app/core/utils/app_strings.dart';
 import 'package:spotify_app/features/song_player/presentation/bloc/cubit/song_player_state.dart';
 
 class SongPlayerCubit extends Cubit<SongPlayerState> {
+
   AudioPlayer audioPlayer = AudioPlayer();
+
   Duration songDuration = Duration.zero;
   Duration songPosition = Duration.zero;
-  SongPlayerCubit() : super(const SongPlayerState.loading()) {
-    audioPlayer.positionStream.listen((position) {
+
+  SongPlayerCubit() : super(SongPlayerLoading()) {
+
+    audioPlayer.positionStream.listen((position) { 
       songPosition = position;
       updateSongPlayer();
     });
-    audioPlayer.durationStream.listen((duartion) {
-      songDuration = duartion!;
-      updateSongPlayer();
+
+    audioPlayer.durationStream.listen((duration) { 
+      songDuration = duration!;
     });
   }
 
   void updateSongPlayer() {
-    emit(const SongPlayerState.success());
+    emit(
+      SongPlayerLoaded()
+    );
   }
 
-  Future<void> loadSong(String url) async {
+
+  Future<void> loadSong(String url) async{
+    print(url);
     try {
       await audioPlayer.setUrl(url);
-      emit(const SongPlayerState.success());
-    } catch (e) {
-      emit(const SongPlayerState.failure(message: AppStrings.errorMessage));
+      emit(
+        SongPlayerLoaded()
+      );
+    } catch(e){
+      emit(
+        SongPlayerFailure()
+      );
     }
   }
 
-  Future<void> playOrPauseSong() async {
+  void playOrPauseSong() {
     if (audioPlayer.playing) {
-      await audioPlayer.stop();
+      audioPlayer.stop();
     } else {
-      await audioPlayer.play();
+      audioPlayer.play();
     }
-    emit(const SongPlayerState.success());
+    emit(
+      SongPlayerLoaded()
+    );
   }
+  
   @override
   Future<void> close() {
     audioPlayer.dispose();
