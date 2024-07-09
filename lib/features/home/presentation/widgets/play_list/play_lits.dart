@@ -3,6 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify_app/core/di/dependancy_injection.dart';
 import 'package:spotify_app/features/home/presentation/cubit/play_list/play_list_cubit.dart';
 import 'package:spotify_app/features/home/presentation/cubit/play_list/play_list_state.dart';
+import 'package:spotify_app/features/home/presentation/widgets/play_list/play_list_songs_list_view.dart';
+
+import 'play_list_loading_list.dart';
+
 
 class PlayList extends StatelessWidget {
   const PlayList({super.key});
@@ -15,18 +19,10 @@ class PlayList extends StatelessWidget {
         builder: (context, state) {
           return state.when(
               loading: () {
-                return Container(
-                  alignment: Alignment.center,
-                  child: const CircularProgressIndicator(),
-                );
+                return const PlayListLoadingList();
               },
               success: (songs) {
-                return ListView.builder(
-                  itemCount: songs.length,
-                  itemBuilder: (context, index) {
-                    return Container();
-                  },
-                );
+                return PlayListSongsListView(songs: songs);
               },
               failure: Text.new);
         },
