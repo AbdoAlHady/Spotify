@@ -23,7 +23,7 @@ class SongPlayerScreen extends StatelessWidget {
         action: IconButton(
             onPressed: () {}, icon: const Icon(Icons.more_vert_rounded)),
       ),
-      body: const SongPlayerBody(),
+      body:  SongPlayerBody(song: song,),
     );
   }
 }
