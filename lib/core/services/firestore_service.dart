@@ -100,4 +100,26 @@ class FireStoreService {
       throw AppStrings.errorMessage;
     }
   }
+
+  // Check if the song is favorite
+  Future<bool> isFavoriteSongs(String songId) async {
+    try {
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      var user = auth.currentUser;
+      String userId = user!.uid;
+      QuerySnapshot favourites = await _db
+          .collection(FirebaseConstants.users)
+          .doc(userId)
+          .collection(FirebaseConstants.favourites)
+          .where('songId', isEqualTo: songId)
+          .get();
+      return favourites.docs.isNotEmpty;
+    } on FirebaseException catch (e) {
+      throw AppFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw AppPlatformException(e.code).message;
+    } catch (e) {
+      throw AppStrings.errorMessage;
+    }
+  }
 }
