@@ -4,8 +4,10 @@ import 'package:spotify_app/features/auth/presentation/screens/sign_in_screen.da
 import 'package:spotify_app/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:spotify_app/features/auth/presentation/screens/signup_or_signin_screen.dart';
 import 'package:spotify_app/features/choose_mode/presentation/screens/choose_mode_screen.dart';
+import 'package:spotify_app/features/home/domain/entities/song_entity.dart';
 import 'package:spotify_app/features/intro/presentation/screens/intro_screen.dart';
 import 'package:spotify_app/features/home/presentation/screens/home_screen.dart';
+import 'package:spotify_app/features/song_player/presentation/screens/song_player_screen.dart';
 import 'package:spotify_app/features/spalsh/presentation/screens/spalsh_screen.dart';
 
 class AppRouter {
@@ -33,17 +35,21 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const SignupOrSigninScreen(),
         );
-       case Routes.signUpScreen:
+      case Routes.signUpScreen:
         return MaterialPageRoute(
           builder: (_) => const SignUpScreen(),
         );
-        case Routes.signInScreen:
+      case Routes.signInScreen:
         return MaterialPageRoute(
           builder: (_) => const SignInScreen(),
         );
-         case Routes.homeScreen:
+      case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
+        );
+      case Routes.songPlayerScreen:
+        return MaterialPageRoute(
+          builder: (_) =>  SongPlayerScreen(song: args as SongEntity,),
         );
 
       default:

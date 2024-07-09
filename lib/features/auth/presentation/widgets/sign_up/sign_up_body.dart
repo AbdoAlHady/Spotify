@@ -43,7 +43,6 @@ class _SignUpBodyState extends State<SignUpBody> {
                   style: TextStyle(fontSize: 30.h, fontWeight: FontWeight.bold),
                 ),
               ),
-
               verticalSpace(50),
               // Full Name
               AppTextFormField(
