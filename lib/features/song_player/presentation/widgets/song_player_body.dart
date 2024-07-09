@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:spotify_app/core/configs/theme/app_colors.dart';
-import 'package:spotify_app/core/configs/theme/text_styles.dart';
-import 'package:spotify_app/core/extension/extension.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
 import 'package:spotify_app/features/home/domain/entities/song_entity.dart';
+import 'package:spotify_app/features/song_player/presentation/widgets/song_details.dart';
 
 class SongPlayerBody extends StatelessWidget {
   const SongPlayerBody({super.key, required this.song});
@@ -26,26 +24,14 @@ class SongPlayerBody extends StatelessWidget {
             ),
           ),
           verticalSpace(17),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(song.artist!,
-                      style: TextStyles.font16WhiteBold.apply(
-                          color: context.isDarkMode ? Colors.white : Colors.black)),
-                  Text(song.title!,
-                      style: TextStyles.font14WhiteRegular.apply(
-                          color: context.isDarkMode ? Colors.white : Colors.black)),
-                ],
-              ),
 
-              const Icon,(Icons.favorite_outline,color: AppColors.darkGrey,size: 40,)
-            ],
-          ),
+          // Song Details
+          SongDetails(song: song),
+
+
         ],
       ),
     );
   }
 }
+
