@@ -54,6 +54,7 @@ dependencies:
   delightful_toast: ^1.1.0
   shared_preferences: ^2.2.3
   shimmer: ^3.0.0
+  just_audio: ^0.9.38
 
 dev_dependencies:
   flutter_test:

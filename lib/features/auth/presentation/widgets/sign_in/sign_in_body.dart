@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spotify_app/core/extension/extension.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
 import 'package:spotify_app/core/helpers/validation_helper.dart';
-import 'package:spotify_app/core/widgets/app_elevated_button.dart';
-import 'package:spotify_app/core/widgets/app_text_form_field.dart';
+import 'package:spotify_app/common/widgets/app_elevated_button.dart';
+import 'package:spotify_app/common/widgets/app_text_form_field.dart';
 import 'package:spotify_app/features/auth/presentation/cubit/signin/signin_cubit.dart';
 import 'package:spotify_app/features/auth/presentation/widgets/have_or_daont_have_an_account.dart';
 

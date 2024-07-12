@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:spotify_app/common/widgets/favorite_button.dart';
 import 'package:spotify_app/core/configs/theme/app_colors.dart';
 import 'package:spotify_app/core/configs/theme/text_styles.dart';
 import 'package:spotify_app/core/extension/extension.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
-
+import 'package:spotify_app/core/routing/routes.dart';
 import '../../../domain/entities/song_entity.dart';
 
 class PlayListSongsListView extends StatelessWidget {
@@ -19,6 +20,9 @@ class PlayListSongsListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return IntrinsicHeight(
           child: ListTile(
+            onTap: () {
+              context.pushNamed(Routes.songPlayerScreen,arguments: songs[index]);
+            },
             leading: Container(
               height: 40.h,
               width: 40.w,
@@ -45,9 +49,7 @@ class PlayListSongsListView extends StatelessWidget {
               Text(songs[index].duration.toString(),
                   style: TextStyles.font15GreyRegular),
               horizontalSpace(40),
-              Icon(Icons.favorite,
-                  color:
-                      context.isDarkMode ? AppColors.lightDark : AppColors.gery)
+              FavoriteButton(song: songs[index],),
             ]),
           ),
         );

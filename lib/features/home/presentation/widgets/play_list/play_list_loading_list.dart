@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
-import 'package:spotify_app/core/widgets/shimmer_effect.dart';
+import 'package:spotify_app/common/widgets/shimmer_effect.dart';
 
 class PlayListLoadingList extends StatelessWidget {
   const PlayListLoadingList({super.key});

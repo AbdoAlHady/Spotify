@@ -8,7 +8,7 @@ import 'package:spotify_app/core/extension/extension.dart';
 import 'package:spotify_app/core/helpers/spacing.dart';
 import 'package:spotify_app/core/routing/routes.dart';
 import 'package:spotify_app/core/utils/app_strings.dart';
-import 'package:spotify_app/core/widgets/app_elevated_button.dart';
+import 'package:spotify_app/common/widgets/app_elevated_button.dart';
 
 class IntroBody extends StatelessWidget {
   const IntroBody({super.key});

@@ -21,7 +21,7 @@ class TextStyles {
   static TextStyle font14Meduim =
       TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500);
   static TextStyle font14WhiteRegular =
-      TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500);
+      TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400);
 
   static TextStyle font15blueBold = TextStyle(
       fontSize: 15.sp, fontWeight: FontWeight.bold, color: Colors.blue);

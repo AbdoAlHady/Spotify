@@ -11,7 +11,7 @@ import 'package:spotify_app/core/routing/routes.dart';
 import 'package:spotify_app/core/services/cache_helper.dart';
 import 'package:spotify_app/core/utils/app_strings.dart';
 import 'package:spotify_app/core/utils/shared_preferences_keys.dart';
-import 'package:spotify_app/core/widgets/app_elevated_button.dart';
+import 'package:spotify_app/common/widgets/app_elevated_button.dart';
 import 'package:spotify_app/features/choose_mode/presentation/bloc/theme_cubit.dart';
 import 'package:spotify_app/features/choose_mode/presentation/widgets/choose_mode_button.dart';
 
