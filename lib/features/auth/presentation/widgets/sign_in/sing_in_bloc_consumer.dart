@@ -8,7 +8,7 @@ import 'package:spotify_app/core/extension/extension.dart';
 import 'package:spotify_app/core/helpers/app_loaders.dart';
 import 'package:spotify_app/core/routing/routes.dart';
 import 'package:spotify_app/core/utils/app_strings.dart';
-import 'package:spotify_app/core/widgets/basic_app_bar.dart';
+import 'package:spotify_app/common/widgets/basic_app_bar.dart';
 import 'package:spotify_app/features/auth/presentation/cubit/signin/signin_state.dart';
 import 'package:spotify_app/features/auth/presentation/widgets/sign_in/sign_in_body.dart';
 

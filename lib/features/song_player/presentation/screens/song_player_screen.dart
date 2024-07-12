@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_app/core/configs/theme/text_styles.dart';
 import 'package:spotify_app/core/extension/extension.dart';
-import 'package:spotify_app/core/widgets/basic_app_bar.dart';
+import 'package:spotify_app/common/widgets/basic_app_bar.dart';
 import 'package:spotify_app/features/home/domain/entities/song_entity.dart';
 
 import '../widgets/song_player_body.dart';

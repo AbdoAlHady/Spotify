@@ -10,7 +10,7 @@ import 'package:spotify_app/core/routing/routes.dart';
 import 'package:spotify_app/core/utils/app_strings.dart';
 import 'package:spotify_app/features/auth/presentation/cubit/signup_cubit/signup_cubit.dart';
 import 'package:spotify_app/features/auth/presentation/widgets/sign_up/sign_up_body.dart';
-import '../../../../../core/widgets/basic_app_bar.dart';
+import '../../../../../common/widgets/basic_app_bar.dart';
 import '../../cubit/signup_cubit/signup_state.dart';
 
 class SignUpBodyBlocConsumer extends StatelessWidget {

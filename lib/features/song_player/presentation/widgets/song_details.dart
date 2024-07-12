@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_app/common/widgets/favorite_button.dart';
 import 'package:spotify_app/core/configs/theme/app_colors.dart';
 import 'package:spotify_app/core/extension/extension.dart';
 import 'package:spotify_app/features/home/domain/entities/song_entity.dart';
@@ -29,8 +30,7 @@ class SongDetails extends StatelessWidget {
                     color: context.isDarkMode ? Colors.white : Colors.black)),
           ],
         ),
-    
-        const Icon(Icons.favorite_outline,color: AppColors.darkGrey,size: 40,)
+        FavoriteButton(song: song),
       ],
     );
   }

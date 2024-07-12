@@ -6,10 +6,10 @@ import 'package:spotify_app/core/helpers/spacing.dart';
 import 'package:spotify_app/core/helpers/validation_helper.dart';
 import 'package:spotify_app/core/routing/routes.dart';
 import 'package:spotify_app/core/utils/app_strings.dart';
-import 'package:spotify_app/core/widgets/app_elevated_button.dart';
+import 'package:spotify_app/common/widgets/app_elevated_button.dart';
 import 'package:spotify_app/features/auth/presentation/cubit/signup_cubit/signup_cubit.dart';
 
-import '../../../../../core/widgets/app_text_form_field.dart';
+import '../../../../../common/widgets/app_text_form_field.dart';
 import '../have_or_daont_have_an_account.dart';
 
 class SignUpBody extends StatefulWidget {
